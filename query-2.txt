@@ -37,3 +37,4 @@ SELECT `teachers`.`name` as "teacher name",`teachers`.`surname` as "teacher surn
 
 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per
 superare ciascuno dei suoi esami
+SELECT COUNT(`exam_student`.`vote`) as "number of tries", `students`.`name` as "student name", `students`.`surname` as "student surname" FROM `students` LEFT JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id` WHERE `exam_student`.`vote` < 18 GROUP BY `students`.`name`, `students`.`surname`
